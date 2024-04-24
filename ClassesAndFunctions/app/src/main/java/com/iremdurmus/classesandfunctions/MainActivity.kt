@@ -109,6 +109,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
             if (age != null) {
                 val simpson = Simpson(name, age, job)
                 myTextView.text = "Name : ${simpson.name} Age : ${simpson.age} Job : ${simpson.job}"
