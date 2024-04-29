@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.iremdurmus.storingdata.databinding.ActivityMainBinding
-
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var sharedPref: SharedPreferences
@@ -19,49 +18,36 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         //SharedPreferences - XML - Key-Value
-        sharedPref = this.getSharedPreferences("com.iremdurmus.storingdata",Context.MODE_PRIVATE)
+        sharedPref = this.getSharedPreferences("com.iremdurmus.storingdata"
+            ,Context.MODE_PRIVATE)
 
         ageFromPref = sharedPref.getInt("age",-1)
          if (ageFromPref == -1)
          {
              binding.textView.text = "your age: "
          }
-        else
-         {
+        else {
              binding.textView.text = "your age: ${ageFromPref}"
          }
-
     }
-
     fun save(view: View){
 
         val myAge = binding.editText.text.toString().toIntOrNull()
-
         if (myAge != null)
         {
             binding.textView.text = "your age: ${myAge}"
             sharedPref.edit().putInt("age",myAge).apply()
         }
-        else
-        {
+        else {
             binding.textView.text = "enter correctly"
-
         }
-
     }
-
     fun delete(view: View){
-
         ageFromPref = sharedPref.getInt("age",-1)
-
         if (ageFromPref != -1) {
 
             sharedPref.edit().remove("age").apply()
             binding.textView.text = "your age:...."
-
         }
-
-
-
     }
 }

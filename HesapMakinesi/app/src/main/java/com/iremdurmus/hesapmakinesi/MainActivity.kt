@@ -17,12 +17,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var cikButton : Button
     private lateinit var bolButton : Button
     private lateinit var carpButton: Button
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         num1EditText = findViewById(R.id.editText)
         num2EditText = findViewById(R.id.editText2)
         myText = findViewById(R.id.textView)
@@ -31,16 +28,12 @@ class MainActivity : AppCompatActivity() {
         bolButton = findViewById(R.id.bolmeButton)
         carpButton = findViewById(R.id.carpmaButton)
 
-
-
         topButton.setOnClickListener {
             Topla()
         }
-
         cikButton.setOnClickListener {
             Cikar()
         }
-
         bolButton.setOnClickListener {
             Bol()
         }
@@ -48,13 +41,7 @@ class MainActivity : AppCompatActivity() {
             Carp()
         }
 
-
-
     }
-
-
-
-
     fun Topla()
     {
 
@@ -70,13 +57,7 @@ class MainActivity : AppCompatActivity() {
         {
             myText.text = "enter number"
         }
-
-
-
-
-
     }
-
     fun Cikar ()
     {
         val num1 = num1EditText.text.toString().toDoubleOrNull()
@@ -91,14 +72,11 @@ class MainActivity : AppCompatActivity() {
         {
             myText.text = "enter number"
         }
-
     }
-
     fun Bol ()
     {
         val num1 = num1EditText.text.toString().toDoubleOrNull()
         val num2 = num2EditText.text.toString().toDoubleOrNull()
-
 
         if (num1 != null && num2 != null)
         {

@@ -40,14 +40,10 @@ class MainActivity : AppCompatActivity() {
         //val result = myMultiply(12,3)
 
         //Class
-
-
         val homer = Simpson("homer", 12, "doctor")
-
         homer.name = "irem"
         println(homer.name)
         //homer.height =190 //private olduğu için aynı class içerisinden erişebilirsin
-
         homer.setHeight(12)
 
         //Nullability
@@ -58,24 +54,17 @@ class MainActivity : AppCompatActivity() {
         var myAge: Int? = null
         //myAge = 50
         // !!  ?
-
         //1) !!
         // println(myAge!! * 10)
-
         //2) safe call
         //println(myAge?.minus(10))
-
         //3)
-
         if (myAge != null) {
             println(myAge.minus(10))
         } else {
-            println("myAge is null")
-        }
-
+            println("myAge is null") }
         //4) elvis operator
         println(myAge?.minus(10) ?: -10)
-
         //5)
         myAge?.let {
             println(it * 10)
@@ -105,14 +94,11 @@ class MainActivity : AppCompatActivity() {
     fun buttonClicked(view: View) {
         name = nameText.text.toString()
         val age = ageText.text.toString().toIntOrNull()
-        val job = jobText.text.toString()
-
-
 
 
             if (age != null) {
-                val simpson = Simpson(name, age, job)
-                myTextView.text = "Name : ${simpson.name} Age : ${simpson.age} Job : ${simpson.job}"
+                val simpson = Simpson(name, age)
+                myTextView.text = "Name : ${simpson.name} Age : ${simpson.age} "
             } else
                 myTextView.text = "enter your age correctly!"
     }

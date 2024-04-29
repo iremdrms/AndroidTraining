@@ -203,6 +203,8 @@ class MainActivity : AppCompatActivity() {
 
          */
 
+
+        //when
         when(day)
         {
             1->dayString = "monday"
@@ -211,9 +213,7 @@ class MainActivity : AppCompatActivity() {
             else->dayString=""
         }
         println(dayString)
-
         //Loops
-
         //For Loop
         println("------For------")
 
@@ -237,6 +237,8 @@ class MainActivity : AppCompatActivity() {
         {
             println(b)
         }
+
+
 
         val myStringArrayList = ArrayList<String>()
         myStringArrayList.add("irem")
