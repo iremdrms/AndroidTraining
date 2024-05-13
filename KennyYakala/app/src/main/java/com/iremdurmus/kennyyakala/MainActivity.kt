@@ -23,57 +23,34 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
-
         setContentView(view)
 
-
-        object : CountDownTimer(16000,1000)
-        {
+        
+        object : CountDownTimer(16000,1000) {
             override fun onTick(p0: Long) {
-                binding.timeView.text = "Time : ${p0/1000}"
-
-            }
-
+                binding.timeView.text = "Time : ${p0/1000}" }
             override fun onFinish() {
-
                 val alert = AlertDialog.Builder(this@MainActivity)
                 alert.setTitle("Game Over")
                 alert.setMessage("Restart The Game?")
                 alert.setPositiveButton("Yes", object : DialogInterface.OnClickListener {
-
                     override fun onClick(p0: DialogInterface?, p1: Int) {
-
                         val intent = Intent(this@MainActivity,MainActivity::class.java)
                         startActivity(intent)
-                        finish()
-
-                    }
-
-                })
-
+                        finish() } })
                 alert.setNegativeButton("No") { p0, p1 ->
-                    Toast.makeText(this@MainActivity,"GAME OVER!",Toast.LENGTH_LONG).show()
-                }
-                alert.show()
-
-            }
-
-        }.start()
-
+                    Toast.makeText(this@MainActivity,"GAME OVER!",Toast.LENGTH_LONG).show() }
+                alert.show() } }.start()
         var kennyImage = binding.imageView5
-
         handler.postDelayed(object : Runnable {
             override fun run() {
-                val randomX = Random.nextInt(binding.root.width - kennyImage.width) // Rastgele x koordinatı
-                val randomY = Random.nextInt(binding.root.height - kennyImage.height)+200 // Rastgele y koordinatı
-
+                val randomX = Random.nextInt(binding.root.width - kennyImage.width)
+                val randomY = Random.nextInt(binding.root.height - kennyImage.height)+200
                 // Rastgele koordinatları ayarlama
                 kennyImage.x = randomX.toFloat()
                 kennyImage.y = randomY.toFloat()
-
                 // Bir sonraki çağrıyı geciktirme
-                handler.postDelayed(this, 1000) // 1000 milisaniyede bir çağrılıyor (1 saniye)
-            }
+                handler.postDelayed(this, 1000)//1000 milisaniyede bir çağrılıyor(1 saniye) }
         }, 1000) // İlk çağrıyı 1 saniye sonra yap
 
     }

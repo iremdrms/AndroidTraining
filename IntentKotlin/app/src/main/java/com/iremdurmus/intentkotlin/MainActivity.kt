@@ -14,42 +14,25 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
-
-
         println("onCreate executed")
-
     }
-
     override fun onStart() {
         super.onStart()
         println("onStart executed")
         //binding.editText.setText("")
-    }
-
-    override fun onResume() {
+        }override fun onResume() {
         super.onResume()
         println("onResume executed")
-    }
-
-    override fun onPause() {
+        }override fun onPause() {
         super.onPause()
         println("onPause executed")
-    }
-
-    override fun onStop() {
+        }override fun onStop() {
         super.onStop()
         println("onStop executed")
-    }
-
-    override fun onDestroy() {
+        }override fun onDestroy() {
         super.onDestroy()
-        println("onDestroy executed")
-    }
-
-
+        println("onDestroy executed") }
     fun test() {}
-
     fun next(view: View) {
         val intent = Intent(this@MainActivity, NextActivity::class.java)
         intent.putExtra("name",binding.editText.text.toString())
